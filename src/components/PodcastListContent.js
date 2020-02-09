@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class PodcastListContent extends React.Component {
   render() {
@@ -12,9 +13,9 @@ class PodcastListContent extends React.Component {
             {podcast.url}
           </a>
           <div style={{ marginTop: "7px" }}>
-            <a className="detail" href="#/">
+            <Link to={"/" + podcast.id} className="detail">
               Lihat >>
-            </a>
+            </Link>
           </div>
         </div>
       </li>

@@ -10,7 +10,8 @@ class App extends React.Component {
     super();
     this.state = {
       data: [],
-      filterText: ""
+      filterText: "",
+      loadingStatus: true
     };
   }
   async componentDidMount() {
@@ -18,7 +19,8 @@ class App extends React.Component {
       "https://json-server-heroku-zjqcjtotyv.now.sh/podcasts"
     );
     this.setState({
-      data: data.data
+      data: data.data,
+      loadingStatus: false
     });
   }
   handleFilterText = filterText => {
@@ -37,6 +39,7 @@ class App extends React.Component {
         <PodcastList
           podcasts={this.state.data}
           filterText={this.state.filterText}
+          loadingStatus={this.state.loadingStatus}
         />
       </>
     );

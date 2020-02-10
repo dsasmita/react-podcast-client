@@ -1,17 +1,20 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import PodcastList from "./pages/PodcastList.js";
-import PodcastDetail from "./pages/PodcastDetail.js";
 
 import "./assets/main.css";
 
+const PodcastList = lazy(() => import("./pages/PodcastList.js"));
+const PodcastDetail = lazy(() => import("./pages/PodcastDetail.js"));
+
 const RootApp = () => (
   <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={PodcastList} />
-      <Route exact path="/:id" component={PodcastDetail} />
-    </Switch>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Switch>
+        <Route exact path="/" component={PodcastList} />
+        <Route exact path="/:id" component={PodcastDetail} />
+      </Switch>
+    </Suspense>
   </BrowserRouter>
 );
 

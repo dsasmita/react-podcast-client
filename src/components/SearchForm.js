@@ -1,11 +1,19 @@
 import React from "react";
 
 class SearchForm extends React.Component {
+  handleFilterText = event => {
+    this.props.handleFilterText(event.target.value);
+  };
   render() {
+    const { filterText } = this.props;
     return (
       <form className="form-search">
-        <input type="text" placeholder="search..." />{" "}
-        <button type="button">Find</button>
+        <input
+          type="text"
+          placeholder="search..."
+          onChange={this.handleFilterText}
+          value={filterText}
+        />
       </form>
     );
   }

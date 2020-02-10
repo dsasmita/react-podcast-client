@@ -4,10 +4,16 @@ import PodcastListContent from "./PodcastListContent.js";
 
 class PodcastList extends React.Component {
   render() {
-    const { podcasts } = this.props;
+    const { podcasts, filterText } = this.props;
+
+    const filteredPodCast = podcasts.filter(function(podcast) {
+      return (
+        podcast.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1
+      );
+    });
     return (
       <ul className="podcast-list">
-        {podcasts.map(podcast => (
+        {filteredPodCast.map(podcast => (
           <PodcastListContent key={podcast.id} podcast={podcast} />
         ))}
       </ul>

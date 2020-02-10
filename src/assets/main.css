@@ -2,7 +2,7 @@ body {
   background: #eee;
   margin: auto;
   font-family: "Avenir", "Arial", sans-serif;
-  max-width: 600px;
+  max-width: 500px;
 }
 
 header .logo {
@@ -14,11 +14,7 @@ header .logo {
 }
 
 .form-search input {
-  width: 80%;
-}
-
-.form-search button {
-  width: 15%;
+  width: 100%;
 }
 
 ul.podcast-list {
@@ -84,4 +80,14 @@ ul.podcast-list li .info a.link {
 
 .detail-podcast .info h3 {
   margin: 0;
+}
+
+.detail-podcast .info audio {
+  max-width: 100%;
+}
+
+.detail-podcast .info a.link {
+  font-size: 0.75em;
+  text-decoration: none;
+  color: #333;
 }

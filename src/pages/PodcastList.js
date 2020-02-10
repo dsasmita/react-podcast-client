@@ -9,7 +9,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      data: [],
+      filterText: ""
     };
   }
   async componentDidMount() {
@@ -20,12 +21,23 @@ class App extends React.Component {
       data: data.data
     });
   }
+  handleFilterText = filterText => {
+    this.setState({
+      filterText: filterText
+    });
+  };
   render() {
     return (
       <>
         <Header />
-        <SearchForm />
-        <PodcastList podcasts={this.state.data} />
+        <SearchForm
+          filterText={this.state.filterText}
+          handleFilterText={this.handleFilterText}
+        />
+        <PodcastList
+          podcasts={this.state.data}
+          filterText={this.state.filterText}
+        />
       </>
     );
   }

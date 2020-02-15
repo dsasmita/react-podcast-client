@@ -15,7 +15,10 @@ const PodcastList = props => {
       ) : (
         <ul className="podcast-list">
           {filteredPodCast.map(podcast => (
-            <Suspense key={podcast.id} fallback={<div>Loading...</div>}>
+            <Suspense
+              key={podcast.id}
+              fallback={<div key={podcast.id}>Loading...</div>}
+            >
               <PodcastListContent podcast={podcast} />
             </Suspense>
           ))}

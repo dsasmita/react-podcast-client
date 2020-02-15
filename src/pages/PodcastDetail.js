@@ -41,7 +41,7 @@ class PodcastDetail extends React.Component {
         <Header />
         {this.state.loadingStatus && <h3>Loading ...</h3>}
         {this.state.loadingStatus === false &&
-          this.state.podcastFound === false && <h3>Podcast notfound</h3>}
+          this.state.podcastFound === false && <h3>Podcast not found</h3>}
         {this.state.podcast !== null && (
           <PodcastDetailContent podcast={this.state.podcast} />
         )}

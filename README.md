@@ -24,6 +24,8 @@ npm install
 npm start
 ```
 
+After start go to http://localhost:3000/ from browser
+
 ## Running the tests
 
 To running test, run
